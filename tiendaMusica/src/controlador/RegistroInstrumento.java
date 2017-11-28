@@ -5,10 +5,18 @@
  */
 package controlador;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author felip
  */
 public class RegistroInstrumento {
+    ArrayList<modelo.Instrumento> ins;
+    
+    public RegistroInstrumento(){
+        ins = new ArrayList<>();
+    }
+    
     
 }
