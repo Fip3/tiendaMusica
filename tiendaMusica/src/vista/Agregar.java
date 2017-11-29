@@ -231,7 +231,7 @@ public class Agregar extends javax.swing.JFrame {
         } else if (jRadioPiano.isSelected()){
             Piano piano = new Piano();
             piano.setCodigo(Integer.parseInt(jTextCodigo.getText().trim()));
-            piano.setNombre(jTextCodigo.getText().trim());
+            piano.setNombre(jTextNombre.getText().trim());
             piano.setStock(Integer.parseInt(jTextStock.getText().trim()));
             piano.setDeCola(jCheckPiano.isSelected());
             registro.agregar(piano);

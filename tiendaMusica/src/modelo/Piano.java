@@ -33,18 +33,16 @@ public class Piano extends Instrumento {
     
     @Override
     public String mostrar(){
-        String dc="";
+        String dc = "";
         if(this.isDeCola()){
             dc = "SI";
         } else {
             dc = "NO";
         }
         
-        return "Piano: {" + 
-               "\n    Código: " + this.getCodigo() +
-               "\n    Nombre: " + this.getNombre() +
-               "\n    ¿De cola?: " + dc +
-               "\n    Stock: " + this.getStock() +
-               "}\n";
+        return "PIANO     Código: " + this.getCodigo() +
+               "  Nombre: " + this.getNombre() +
+               "  ¿De cola?: " + dc +
+               "  Stock: " + this.getStock();
     }
 }

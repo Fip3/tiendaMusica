@@ -27,7 +27,7 @@ public class RegistroInstrumento {
             if(inst.getTipoInstrumento().equals("Guitarra")){
                 System.out.println("Guitarra agregada");
             } else {
-                System.out.println("Piano agregada");
+                System.out.println("Piano agregado");
             }
             return true;
         } else {
