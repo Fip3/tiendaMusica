@@ -22,7 +22,7 @@ public class RegistroInstrumento {
     public boolean agregar(Instrumento inst){
         boolean ok = false;
         
-        if(this.existeCodigo(inst.getCodigo())){
+        if(!this.existeCodigo(inst.getCodigo())){
             instCol.add(inst);
             if(inst.getTipoInstrumento().equals("Guitarra")){
                 System.out.println("Guitarra agregada");

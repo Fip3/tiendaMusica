@@ -9,13 +9,22 @@ package vista;
  *
  * @author felip
  */
+
+import controlador.*;
+import java.awt.Color;
+import modelo.*;
 public class Agregar extends javax.swing.JFrame {
 
     /**
      * Creates new form Agregar
      */
-    public Agregar() {
+    
+    RegistroInstrumento registro;
+    public Agregar(RegistroInstrumento reg) {
         initComponents();
+        this.registro = reg;
+        jComboGuitarra.setEnabled(false);
+        jCheckPiano.setEnabled(false);
     }
 
     /**
@@ -27,23 +36,210 @@ public class Agregar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupInstrumento = new javax.swing.ButtonGroup();
+        jLabelTitulo = new javax.swing.JLabel();
+        jButtonSalir = new javax.swing.JButton();
+        jRadioGuitarra = new javax.swing.JRadioButton();
+        jRadioPiano = new javax.swing.JRadioButton();
+        jLabelCodigo = new javax.swing.JLabel();
+        jLabelNombre = new javax.swing.JLabel();
+        jLabelStock = new javax.swing.JLabel();
+        jTextCodigo = new javax.swing.JTextField();
+        jTextNombre = new javax.swing.JTextField();
+        jTextStock = new javax.swing.JTextField();
+        jCheckPiano = new javax.swing.JCheckBox();
+        jComboGuitarra = new javax.swing.JComboBox<>();
+        jButtonSalir1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextResultado = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agregar");
         setName("jFrameAgregar"); // NOI18N
+
+        jLabelTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelTitulo.setText("Agregar Instrumento");
+
+        jButtonSalir.setText("SALIR");
+        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalirActionPerformed(evt);
+            }
+        });
+
+        buttonGroupInstrumento.add(jRadioGuitarra);
+        jRadioGuitarra.setText("Guitarra");
+        jRadioGuitarra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioGuitarraActionPerformed(evt);
+            }
+        });
+
+        buttonGroupInstrumento.add(jRadioPiano);
+        jRadioPiano.setText("Piano");
+        jRadioPiano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioPianoActionPerformed(evt);
+            }
+        });
+
+        jLabelCodigo.setText("Código");
+
+        jLabelNombre.setText("Nombre Producto");
+
+        jLabelStock.setText("Stock");
+
+        jCheckPiano.setText("de Cola");
+        jCheckPiano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckPianoActionPerformed(evt);
+            }
+        });
+
+        jComboGuitarra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccionar --", "acústica", "eléctrica", "electroacústica" }));
+
+        jButtonSalir1.setText("Agregar");
+        jButtonSalir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalir1ActionPerformed(evt);
+            }
+        });
+
+        jTextResultado.setColumns(20);
+        jTextResultado.setRows(5);
+        jScrollPane1.setViewportView(jTextResultado);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelNombre)
+                                            .addComponent(jLabelCodigo)
+                                            .addComponent(jLabelStock))
+                                        .addGap(14, 14, 14)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextStock)
+                                            .addComponent(jTextNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                                            .addComponent(jTextCodigo)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jRadioGuitarra)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jComboGuitarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jRadioPiano)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckPiano))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabelTitulo)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonSalir, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonSalir1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelTitulo)
+                    .addComponent(jButtonSalir))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioGuitarra)
+                    .addComponent(jComboGuitarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioPiano)
+                    .addComponent(jCheckPiano))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelCodigo)
+                    .addComponent(jTextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNombre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelStock)
+                    .addComponent(jButtonSalir1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jRadioPianoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioPianoActionPerformed
+        jCheckPiano.setEnabled(true);
+        jComboGuitarra.setEnabled(false);
+    }//GEN-LAST:event_jRadioPianoActionPerformed
+
+    private void jCheckPianoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckPianoActionPerformed
+        
+    }//GEN-LAST:event_jCheckPianoActionPerformed
+
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+        System.exit(0);// TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSalirActionPerformed
+
+    private void jRadioGuitarraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioGuitarraActionPerformed
+        jCheckPiano.setEnabled(false);
+        jComboGuitarra.setEnabled(true);
+    }//GEN-LAST:event_jRadioGuitarraActionPerformed
+
+    private void jButtonSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalir1ActionPerformed
+        if(jRadioGuitarra.isSelected()){
+            Guitarra guitarra = new Guitarra();
+            guitarra.setCodigo(Integer.parseInt(jTextCodigo.getText().trim()));
+            guitarra.setNombre(jTextCodigo.getText().trim());
+            guitarra.setStock(Integer.parseInt(jTextStock.getText().trim()));
+            switch (jComboGuitarra.getSelectedIndex()){
+                case 1:
+                    guitarra.setTipoGuitarra("acústica");
+                    break;
+                case 2:
+                    guitarra.setTipoGuitarra("eléctrica");
+                    break;
+                case 3:
+                    guitarra.setTipoGuitarra("electroacústica");
+                    break;
+                default:
+                    jComboGuitarra.setForeground(Color.red);
+                    break;
+            }
+            
+            registro.agregar(guitarra);
+            
+            
+        } else if (jRadioPiano.isSelected()){
+            Piano piano = new Piano();
+            piano.setCodigo(Integer.parseInt(jTextCodigo.getText().trim()));
+            piano.setNombre(jTextCodigo.getText().trim());
+            piano.setStock(Integer.parseInt(jTextStock.getText().trim()));
+            piano.setDeCola(jCheckPiano.isSelected());
+            registro.agregar(piano);
+        } else {
+            //CUADRO DE ERROR
+        }
+        jTextResultado.setText(registro.listar());
+    }//GEN-LAST:event_jButtonSalir1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -72,14 +268,31 @@ public class Agregar extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the form
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Agregar().setVisible(true);
             }
         });
+         */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroupInstrumento;
+    private javax.swing.JButton jButtonSalir;
+    private javax.swing.JButton jButtonSalir1;
+    private javax.swing.JCheckBox jCheckPiano;
+    private javax.swing.JComboBox<String> jComboGuitarra;
+    private javax.swing.JLabel jLabelCodigo;
+    private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JLabel jLabelStock;
+    private javax.swing.JLabel jLabelTitulo;
+    private javax.swing.JRadioButton jRadioGuitarra;
+    private javax.swing.JRadioButton jRadioPiano;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextCodigo;
+    private javax.swing.JTextField jTextNombre;
+    private javax.swing.JTextArea jTextResultado;
+    private javax.swing.JTextField jTextStock;
     // End of variables declaration//GEN-END:variables
 }

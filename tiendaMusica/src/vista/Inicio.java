@@ -16,9 +16,11 @@ public class Inicio extends javax.swing.JFrame {
     /**
      * Creates new form Inicio
      */
-    public Inicio() {
+    
+    RegistroInstrumento registro;
+    public Inicio(RegistroInstrumento reg) {
         initComponents();
-        RegistroInstrumento inventario = new RegistroInstrumento();
+        this.registro = reg;
         
     }
 
@@ -106,7 +108,7 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAgregarActionPerformed
-        Agregar agregar = new Agregar();
+        Agregar agregar = new Agregar(registro);
         agregar.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuAgregarActionPerformed
@@ -116,7 +118,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuSalirActionPerformed
 
     private void jMenuEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEliminarActionPerformed
-        Eliminar eliminar = new Eliminar();
+        Eliminar eliminar = new Eliminar(registro);
         eliminar.setVisible(true);
     }//GEN-LAST:event_jMenuEliminarActionPerformed
 
@@ -151,11 +153,11 @@ public class Inicio extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        RegistroInstrumento registro = new RegistroInstrumento();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inicio().setVisible(true);
+                new Inicio(registro).setVisible(true);
             }
         });
     }

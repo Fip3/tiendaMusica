@@ -9,12 +9,17 @@ package vista;
  *
  * @author felip
  */
+
+import controlador.*;
 public class Eliminar extends javax.swing.JFrame {
 
     /**
      * Creates new form Eliminar
      */
-    public Eliminar() {
+    
+    RegistroInstrumento registro;
+    public Eliminar(RegistroInstrumento reg) {
+        this.registro = reg;
         initComponents();
     }
 
@@ -73,12 +78,13 @@ public class Eliminar extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the form
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Eliminar().setVisible(true);
             }
         });
+        */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
