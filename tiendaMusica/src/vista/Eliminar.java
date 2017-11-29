@@ -11,6 +11,8 @@ package vista;
  */
 
 import controlador.*;
+import javax.swing.*;
+
 public class Eliminar extends javax.swing.JFrame {
 
     /**
@@ -32,24 +34,95 @@ public class Eliminar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabelTitulo = new javax.swing.JLabel();
+        jLabelCodigo = new javax.swing.JLabel();
+        jTextCodigo = new javax.swing.JTextField();
+        jButtonEliminar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Eliminar");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("jFrameEliminar"); // NOI18N
         setResizable(false);
+
+        jLabelTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelTitulo.setText("Eliminar Instrumento");
+
+        jLabelCodigo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelCodigo.setText("Codigo");
+
+        jTextCodigo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextCodigoActionPerformed(evt);
+            }
+        });
+
+        jButtonEliminar.setText("Eliminar");
+        jButtonEliminar.setAlignmentY(0.0F);
+        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelTitulo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                            .addComponent(jTextCodigo)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addComponent(jButtonEliminar)))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelTitulo)
+                .addGap(52, 52, 52)
+                .addComponent(jLabelCodigo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonEliminar)
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCodigoActionPerformed
+
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
+        try {
+            
+            if(registro.eliminar(Integer.parseInt(jTextCodigo.getText().trim()))){
+                System.out.println("registro eliminado");
+                JOptionPane.showMessageDialog(this, "Instrumento " + jTextCodigo.getText() + " eliminado correctamente");
+                new Inicio(registro).setVisible(true);
+                this.setVisible(false);
+            } else {
+                System.out.println("error al eliminar registro ");
+                JOptionPane.showMessageDialog(this, "Error al eliminar el instrumento" + jTextCodigo.getText());
+            }
+        } catch (NullPointerException np){
+            System.out.println("error al eliminar registro  - " + np.getMessage());
+            JOptionPane.showMessageDialog(this, "Error al eliminar el instrumento" + jTextCodigo.getText());
+        }
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -88,5 +161,9 @@ public class Eliminar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonEliminar;
+    private javax.swing.JLabel jLabelCodigo;
+    private javax.swing.JLabel jLabelTitulo;
+    private javax.swing.JTextField jTextCodigo;
     // End of variables declaration//GEN-END:variables
 }

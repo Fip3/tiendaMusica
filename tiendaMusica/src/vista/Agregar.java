@@ -218,8 +218,6 @@ public class Agregar extends javax.swing.JFrame {
     private void jButtonSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalir1ActionPerformed
         try {
             
-            
-            
             if(jRadioGuitarra.isSelected()){
                 Guitarra guitarra = new Guitarra();
                 guitarra.setCodigo(Integer.parseInt(jTextCodigo.getText().trim()));
