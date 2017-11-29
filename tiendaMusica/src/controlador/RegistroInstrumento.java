@@ -6,17 +6,44 @@
 package controlador;
 
 import java.util.ArrayList;
+import modelo.*;
 
 /**
  *
  * @author felip
  */
 public class RegistroInstrumento {
-    ArrayList<modelo.Instrumento> ins;
+    private ArrayList<Instrumento> instCol;
     
     public RegistroInstrumento(){
-        ins = new ArrayList<>();
+        instCol = new ArrayList<>();
     }
     
+    public boolean agregar(Instrumento inst){
+        boolean ok = false;
+        
+        if(this.existeCodigo(inst.getCodigo())){
+            instCol.add(inst);
+            if(inst.getTipoInstrumento().equals("Guitarra")){
+                System.out.println("Guitarra agregada");
+            } else {
+                System.out.println("Piano agregada");
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public boolean existeCodigo(int c) {
+        boolean existe = false;
+        for (Instrumento elem : instCol) {
+            if (elem.getCodigo() == c) {
+                existe = true;
+                break;
+            }
+        }
+        return existe;
+    }
     
 }

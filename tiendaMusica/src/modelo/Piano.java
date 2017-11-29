@@ -14,10 +14,12 @@ public class Piano extends Instrumento {
     private boolean deCola;
     
     public Piano(){
+        this.tipoInstrumento = "Piano";
     }
     
     public Piano(int codigo, String nombre, int stock, boolean deCola) {
         super (codigo, nombre, stock);
+        this.tipoInstrumento = "Piano";
         this.deCola = deCola;
     }
     

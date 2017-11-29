@@ -12,10 +12,13 @@ package modelo;
 public class Guitarra extends Instrumento {
    private String tipoGuitarra;
    
-   public Guitarra(){}
+   public Guitarra(){
+       this.tipoInstrumento = "Guitarra";
+   }
    
    public Guitarra(int codigo, String nombre, int stock, String tipoGuitarra) {
        super(codigo, nombre, stock);
+       this.tipoInstrumento = "Guitarra";
        this.tipoGuitarra = tipoGuitarra;
    }
    

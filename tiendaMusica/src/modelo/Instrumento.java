@@ -1,9 +1,10 @@
 package modelo;
 
 public abstract class Instrumento {
-    private int codigo;
-    private String nombre;
-    private int stock;
+    protected int codigo;
+    protected String nombre;
+    protected int stock;
+    protected String tipoInstrumento;
 
     public Instrumento(){
     }
@@ -36,6 +37,10 @@ public abstract class Instrumento {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public String getTipoInstrumento() {
+        return tipoInstrumento;
     }
     
     public abstract String mostrar();
