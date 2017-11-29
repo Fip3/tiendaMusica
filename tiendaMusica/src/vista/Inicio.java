@@ -43,6 +43,7 @@ public class Inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inicio");
+        setLocation(new java.awt.Point(20, 20));
         setName("jFrameInicio"); // NOI18N
         setResizable(false);
 
@@ -120,11 +121,13 @@ public class Inicio extends javax.swing.JFrame {
     private void jMenuEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEliminarActionPerformed
         Eliminar eliminar = new Eliminar(registro);
         eliminar.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenuEliminarActionPerformed
 
     private void jMenuListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuListarActionPerformed
         Listar listar = new Listar(registro);
         listar.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenuListarActionPerformed
 
     /**

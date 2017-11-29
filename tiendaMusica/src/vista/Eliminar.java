@@ -12,6 +12,7 @@ package vista;
 
 import controlador.*;
 import javax.swing.*;
+import excepcion.*;
 
 public class Eliminar extends javax.swing.JFrame {
 
@@ -109,6 +110,10 @@ public class Eliminar extends javax.swing.JFrame {
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
         try {
             
+            if(jTextCodigo.getText().trim().length() != 4){
+                throw new ExcCodigo();
+            }
+            
             if(registro.eliminar(Integer.parseInt(jTextCodigo.getText().trim()))){
                 System.out.println("registro eliminado");
                 JOptionPane.showMessageDialog(this, "Instrumento " + jTextCodigo.getText() + " eliminado correctamente");
@@ -121,6 +126,9 @@ public class Eliminar extends javax.swing.JFrame {
         } catch (NullPointerException np){
             System.out.println("error al eliminar registro  - " + np.getMessage());
             JOptionPane.showMessageDialog(this, "Error al eliminar el instrumento" + jTextCodigo.getText());
+        } catch (ExcCodigo ec) {
+            System.out.println("error al eliminar registro  - " + ec.getMessage());
+            JOptionPane.showMessageDialog(this, "El código debe tener 4 digitos");
         }
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 

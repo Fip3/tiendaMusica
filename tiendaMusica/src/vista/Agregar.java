@@ -13,6 +13,8 @@ package vista;
 import controlador.*;
 import modelo.*;
 import javax.swing.*;
+import excepcion.*;
+import java.awt.Color;
 
 
 public class Agregar extends javax.swing.JFrame {
@@ -58,7 +60,9 @@ public class Agregar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agregar");
+        setLocation(new java.awt.Point(30, 30));
         setName("jFrameAgregar"); // NOI18N
+        setResizable(false);
 
         jLabelTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelTitulo.setText("Agregar Instrumento");
@@ -218,6 +222,17 @@ public class Agregar extends javax.swing.JFrame {
     private void jButtonSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalir1ActionPerformed
         try {
             
+            if(!jRadioGuitarra.isSelected() && !jRadioPiano.isSelected()){
+                JOptionPane.showMessageDialog(this, "Elige un tipo de instrumento");
+                throw new NullPointerException("tipo de instrumento no elegido");
+            } else if(jTextCodigo.getText().trim().length() != 4 ){
+                throw new ExcCodigo();
+            } else if(jTextNombre.getText().trim().length() < 2 ){
+                throw new ExcNombre();
+            } else if(Integer.parseInt(jTextStock.getText().trim()) < 0 ){
+                throw new ExcStock();
+            }
+            
             if(jRadioGuitarra.isSelected()){
                 Guitarra guitarra = new Guitarra();
                 guitarra.setCodigo(Integer.parseInt(jTextCodigo.getText().trim()));
@@ -234,10 +249,11 @@ public class Agregar extends javax.swing.JFrame {
                         guitarra.setTipoGuitarra("electroacústica");
                         break;
                     default:
-                        System.out.println("Elige un tipo de guitarra");
-                        break;
+                        System.out.println("error en tipo de guitarra");
+                        jComboGuitarra.setForeground(Color.red);
+                        throw new NullPointerException("tipo de guitarra no elegido");
                 }
-
+                jComboGuitarra.setForeground(Color.black);
                 registro.agregar(guitarra);
 
             } else if (jRadioPiano.isSelected()){
@@ -248,17 +264,26 @@ public class Agregar extends javax.swing.JFrame {
                 piano.setDeCola(jCheckPiano.isSelected());
                 registro.agregar(piano);
             } else {
-                JOptionPane.showMessageDialog(null, "");
+                
                 
             }
             jTextResultado.setText(registro.listar());
         } catch (NullPointerException np) {
             System.out.println("Excepcion null " + np.getMessage());
-            JOptionPane.showMessageDialog(this, "No pueden haber campos en blanco");
+            JOptionPane.showMessageDialog(this, "Recuerda ingresar todas las opciones");
         } catch (NumberFormatException nf) {
             System.out.println("Excepcion formato de numero " + nf.getMessage());
             JOptionPane.showMessageDialog(this, "No pueden haber campos en blanco");
-        } 
+        } catch (ExcCodigo ec){
+            System.out.println("Excepcion formato de numero " + ec.getMessage());
+            JOptionPane.showMessageDialog(this, "El código debe tener 4 digitos");
+        } catch (ExcNombre en){
+            System.out.println("Excepcion formato de nombre " + en.getMessage());
+            JOptionPane.showMessageDialog(this, "El nombre debe tener 2 caracteres al menos");
+        } catch (ExcStock es){
+            System.out.println("Excepcion formato de nombre " + es.getMessage());
+            JOptionPane.showMessageDialog(this, "El stock debe ser mayor o igual que 0 (cero)");
+        }
     }//GEN-LAST:event_jButtonSalir1ActionPerformed
 
     /**

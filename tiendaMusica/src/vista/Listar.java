@@ -103,7 +103,7 @@ public class Listar extends javax.swing.JFrame {
 
     private void jButtonListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarActionPerformed
         if (registro.listar().equals("")){
-            jTextListado.setText("No existen registros");
+            jTextListado.setText("No existen registros\n--\nPresione SALIR para volver al Menú");
         } else {
             jTextListado.setText(registro.listar());
         }
