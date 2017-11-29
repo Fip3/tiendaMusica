@@ -35,10 +35,32 @@ public class RegistroInstrumento {
         }
     }
     
-    public boolean existeCodigo(int c) {
+    public boolean eliminar(int codigo){
+        
+        boolean ok = false;
+        for (int i=0; i < instCol.size(); i++){
+            if(instCol.get(i).getCodigo() == codigo){
+                instCol.remove(i);
+                ok = true;
+                break;
+            }
+        }
+        return ok;
+    }
+    
+    public String listar() {
+        String lista = "";
+        for(Instrumento elem : instCol){
+            lista = lista + elem.mostrar() + "\n";
+        }
+        
+        return lista;
+    }
+    
+    public boolean existeCodigo(int codigo) {
         boolean existe = false;
         for (Instrumento elem : instCol) {
-            if (elem.getCodigo() == c) {
+            if (elem.getCodigo() == codigo) {
                 existe = true;
                 break;
             }
