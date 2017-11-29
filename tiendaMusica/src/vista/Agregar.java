@@ -11,8 +11,10 @@ package vista;
  */
 
 import controlador.*;
-import java.awt.Color;
 import modelo.*;
+import javax.swing.*;
+
+
 public class Agregar extends javax.swing.JFrame {
 
     /**
@@ -20,6 +22,7 @@ public class Agregar extends javax.swing.JFrame {
      */
     
     RegistroInstrumento registro;
+    
     public Agregar(RegistroInstrumento reg) {
         initComponents();
         this.registro = reg;
@@ -105,7 +108,9 @@ public class Agregar extends javax.swing.JFrame {
             }
         });
 
+        jTextResultado.setEditable(false);
         jTextResultado.setColumns(20);
+        jTextResultado.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jTextResultado.setRows(5);
         jScrollPane1.setViewportView(jTextResultado);
 
@@ -116,9 +121,15 @@ public class Agregar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabelTitulo))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,8 +139,8 @@ public class Agregar extends javax.swing.JFrame {
                                         .addGap(14, 14, 14)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jTextStock)
-                                            .addComponent(jTextNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                                            .addComponent(jTextCodigo)))
+                                            .addComponent(jTextNombre)
+                                            .addComponent(jTextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jRadioGuitarra)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -137,17 +148,11 @@ public class Agregar extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jRadioPiano)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jCheckPiano))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabelTitulo)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                                        .addComponent(jCheckPiano)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonSalir, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonSalir1, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1)))
+                            .addComponent(jButtonSalir1, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -157,29 +162,33 @@ public class Agregar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTitulo)
                     .addComponent(jButtonSalir))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioGuitarra)
-                    .addComponent(jComboGuitarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(jButtonSalir1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioGuitarra)
+                            .addComponent(jComboGuitarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioPiano)
+                            .addComponent(jCheckPiano))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelCodigo)
+                            .addComponent(jTextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelNombre))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelStock))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioPiano)
-                    .addComponent(jCheckPiano))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCodigo)
-                    .addComponent(jTextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelNombre))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelStock)
-                    .addComponent(jButtonSalir1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -196,7 +205,9 @@ public class Agregar extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckPianoActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-        System.exit(0);// TODO add your handling code here:
+        new Inicio(registro).setVisible(true);
+        this.setVisible(false);
+        
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jRadioGuitarraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioGuitarraActionPerformed
@@ -205,40 +216,51 @@ public class Agregar extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioGuitarraActionPerformed
 
     private void jButtonSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalir1ActionPerformed
-        if(jRadioGuitarra.isSelected()){
-            Guitarra guitarra = new Guitarra();
-            guitarra.setCodigo(Integer.parseInt(jTextCodigo.getText().trim()));
-            guitarra.setNombre(jTextCodigo.getText().trim());
-            guitarra.setStock(Integer.parseInt(jTextStock.getText().trim()));
-            switch (jComboGuitarra.getSelectedIndex()){
-                case 1:
-                    guitarra.setTipoGuitarra("acústica");
-                    break;
-                case 2:
-                    guitarra.setTipoGuitarra("eléctrica");
-                    break;
-                case 3:
-                    guitarra.setTipoGuitarra("electroacústica");
-                    break;
-                default:
-                    jComboGuitarra.setForeground(Color.red);
-                    break;
+        try {
+            
+            
+            
+            if(jRadioGuitarra.isSelected()){
+                Guitarra guitarra = new Guitarra();
+                guitarra.setCodigo(Integer.parseInt(jTextCodigo.getText().trim()));
+                guitarra.setNombre(jTextCodigo.getText().trim());
+                guitarra.setStock(Integer.parseInt(jTextStock.getText().trim()));
+                switch (jComboGuitarra.getSelectedIndex()){
+                    case 1:
+                        guitarra.setTipoGuitarra("acústica");
+                        break;
+                    case 2:
+                        guitarra.setTipoGuitarra("eléctrica");
+                        break;
+                    case 3:
+                        guitarra.setTipoGuitarra("electroacústica");
+                        break;
+                    default:
+                        System.out.println("Elige un tipo de guitarra");
+                        break;
+                }
+
+                registro.agregar(guitarra);
+
+            } else if (jRadioPiano.isSelected()){
+                Piano piano = new Piano();
+                piano.setCodigo(Integer.parseInt(jTextCodigo.getText().trim()));
+                piano.setNombre(jTextNombre.getText().trim());
+                piano.setStock(Integer.parseInt(jTextStock.getText().trim()));
+                piano.setDeCola(jCheckPiano.isSelected());
+                registro.agregar(piano);
+            } else {
+                JOptionPane.showMessageDialog(null, "");
+                
             }
-            
-            registro.agregar(guitarra);
-            
-            
-        } else if (jRadioPiano.isSelected()){
-            Piano piano = new Piano();
-            piano.setCodigo(Integer.parseInt(jTextCodigo.getText().trim()));
-            piano.setNombre(jTextNombre.getText().trim());
-            piano.setStock(Integer.parseInt(jTextStock.getText().trim()));
-            piano.setDeCola(jCheckPiano.isSelected());
-            registro.agregar(piano);
-        } else {
-            //CUADRO DE ERROR
-        }
-        jTextResultado.setText(registro.listar());
+            jTextResultado.setText(registro.listar());
+        } catch (NullPointerException np) {
+            System.out.println("Excepcion null " + np.getMessage());
+            JOptionPane.showMessageDialog(this, "No pueden haber campos en blanco");
+        } catch (NumberFormatException nf) {
+            System.out.println("Excepcion formato de numero " + nf.getMessage());
+            JOptionPane.showMessageDialog(this, "No pueden haber campos en blanco");
+        } 
     }//GEN-LAST:event_jButtonSalir1ActionPerformed
 
     /**

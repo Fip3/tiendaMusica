@@ -123,7 +123,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuEliminarActionPerformed
 
     private void jMenuListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuListarActionPerformed
-        Listar listar = new Listar();
+        Listar listar = new Listar(registro);
         listar.setVisible(true);
     }//GEN-LAST:event_jMenuListarActionPerformed
 

@@ -5,6 +5,9 @@
  */
 package vista;
 
+import modelo.*;
+import controlador.*;
+
 /**
  *
  * @author felip
@@ -14,8 +17,12 @@ public class Listar extends javax.swing.JFrame {
     /**
      * Creates new form Listar
      */
-    public Listar() {
+    
+    RegistroInstrumento registro;
+    public Listar(RegistroInstrumento reg) {
+        
         initComponents();
+        this.registro = reg;
     }
 
     /**
