@@ -278,8 +278,11 @@ public class Agregar extends javax.swing.JFrame {
             System.out.println("Excepcion formato de nombre " + en.getMessage());
             JOptionPane.showMessageDialog(this, "El nombre debe tener 2 caracteres al menos");
         } catch (ExcStock es){
-            System.out.println("Excepcion formato de nombre " + es.getMessage());
+            System.out.println("Excepcion en stock " + es.getMessage());
             JOptionPane.showMessageDialog(this, "El stock debe ser mayor o igual que 0 (cero)");
+        } catch (IllegalArgumentException ia) {
+            System.out.println("Excepcion invalid argument " + ia.getMessage());
+            JOptionPane.showMessageDialog(this, "El campo codigo y stock deben ser numéricos");
         }
     }//GEN-LAST:event_jButtonSalir1ActionPerformed
 
