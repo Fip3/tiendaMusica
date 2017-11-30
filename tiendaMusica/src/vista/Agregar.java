@@ -271,9 +271,6 @@ public class Agregar extends javax.swing.JFrame {
         } catch (NullPointerException np) {
             System.out.println("Excepcion null " + np.getMessage());
             JOptionPane.showMessageDialog(this, "Recuerda ingresar todas las opciones");
-        } catch (NumberFormatException nf) {
-            System.out.println("Excepcion formato de numero " + nf.getMessage());
-            JOptionPane.showMessageDialog(this, "No pueden haber campos en blanco");
         } catch (ExcCodigo ec){
             System.out.println("Excepcion formato de numero " + ec.getMessage());
             JOptionPane.showMessageDialog(this, "El código debe tener 4 digitos");
