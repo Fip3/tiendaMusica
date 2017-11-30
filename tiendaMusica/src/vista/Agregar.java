@@ -236,7 +236,7 @@ public class Agregar extends javax.swing.JFrame {
             if(jRadioGuitarra.isSelected()){
                 Guitarra guitarra = new Guitarra();
                 guitarra.setCodigo(Integer.parseInt(jTextCodigo.getText().trim()));
-                guitarra.setNombre(jTextCodigo.getText().trim());
+                guitarra.setNombre(jTextNombre.getText().trim());
                 guitarra.setStock(Integer.parseInt(jTextStock.getText().trim()));
                 switch (jComboGuitarra.getSelectedIndex()){
                     case 1:
@@ -250,11 +250,14 @@ public class Agregar extends javax.swing.JFrame {
                         break;
                     default:
                         System.out.println("error en tipo de guitarra");
-                        jComboGuitarra.setForeground(Color.red);
                         throw new NullPointerException("tipo de guitarra no elegido");
                 }
                 jComboGuitarra.setForeground(Color.black);
-                registro.agregar(guitarra);
+                if(registro.agregar(guitarra)){
+                    jTextResultado.setText(registro.listar());
+                } else {
+                    jTextResultado.setText("Código ya existe\n--\n" + registro.listar());
+                }
 
             } else if (jRadioPiano.isSelected()){
                 Piano piano = new Piano();
@@ -262,12 +265,13 @@ public class Agregar extends javax.swing.JFrame {
                 piano.setNombre(jTextNombre.getText().trim());
                 piano.setStock(Integer.parseInt(jTextStock.getText().trim()));
                 piano.setDeCola(jCheckPiano.isSelected());
-                registro.agregar(piano);
-            } else {
-                
-                
-            }
-            jTextResultado.setText(registro.listar());
+                if(registro.agregar(piano)){
+                    jTextResultado.setText(registro.listar());
+                } else {
+                    jTextResultado.setText("Código ya existe\n--\n" + registro.listar());
+                }
+            } 
+            
         } catch (NullPointerException np) {
             System.out.println("Excepcion null " + np.getMessage());
             JOptionPane.showMessageDialog(this, "Recuerda ingresar todas las opciones");

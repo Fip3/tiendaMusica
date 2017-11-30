@@ -20,7 +20,6 @@ public class RegistroInstrumento {
     }
     
     public boolean agregar(Instrumento inst){
-        boolean ok = false;
         
         if(!this.existeCodigo(inst.getCodigo())){
             instCol.add(inst);
@@ -31,6 +30,7 @@ public class RegistroInstrumento {
             }
             return true;
         } else {
+            System.out.println("Codigo existe");
             return false;
         }
     }
