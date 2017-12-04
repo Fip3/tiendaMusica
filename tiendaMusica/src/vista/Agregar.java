@@ -54,7 +54,7 @@ public class Agregar extends javax.swing.JFrame {
         jTextStock = new javax.swing.JTextField();
         jCheckPiano = new javax.swing.JCheckBox();
         jComboGuitarra = new javax.swing.JComboBox<>();
-        jButtonSalir1 = new javax.swing.JButton();
+        jButtonAgregar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextResultado = new javax.swing.JTextArea();
 
@@ -105,10 +105,10 @@ public class Agregar extends javax.swing.JFrame {
 
         jComboGuitarra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccionar --", "acústica", "eléctrica", "electroacústica" }));
 
-        jButtonSalir1.setText("Agregar");
-        jButtonSalir1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAgregar.setText("Agregar");
+        jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalir1ActionPerformed(evt);
+                jButtonAgregarActionPerformed(evt);
             }
         });
 
@@ -156,7 +156,7 @@ public class Agregar extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonSalir, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonSalir1, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(jButtonAgregar, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -169,7 +169,7 @@ public class Agregar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(146, 146, 146)
-                        .addComponent(jButtonSalir1))
+                        .addComponent(jButtonAgregar))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -219,7 +219,7 @@ public class Agregar extends javax.swing.JFrame {
         jComboGuitarra.setEnabled(true);
     }//GEN-LAST:event_jRadioGuitarraActionPerformed
 
-    private void jButtonSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalir1ActionPerformed
+    private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
         try {
             
             if(!jRadioGuitarra.isSelected() && !jRadioPiano.isSelected()){
@@ -288,7 +288,7 @@ public class Agregar extends javax.swing.JFrame {
             System.out.println("Excepcion invalid argument " + ia.getMessage());
             JOptionPane.showMessageDialog(this, "El campo codigo y stock deben ser numéricos");
         }
-    }//GEN-LAST:event_jButtonSalir1ActionPerformed
+    }//GEN-LAST:event_jButtonAgregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,8 +328,8 @@ public class Agregar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupInstrumento;
+    private javax.swing.JButton jButtonAgregar;
     private javax.swing.JButton jButtonSalir;
-    private javax.swing.JButton jButtonSalir1;
     private javax.swing.JCheckBox jCheckPiano;
     private javax.swing.JComboBox<String> jComboGuitarra;
     private javax.swing.JLabel jLabelCodigo;
